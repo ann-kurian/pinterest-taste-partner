@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Duplicate Save Guard & AI Taste Partner — An Interactive Pinterest Case Study</title>
+<title>Duplicate Save Guard & AI Taste Partner: An Interactive Pinterest Case Study</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --shell-bg:#F6F5F2; --ink:#1B1B1B; --ink-soft:#5C5C5C; --line:#E3E1DB;
-    --pin-red:#E60023; --pin-red-dark:#C4001E; --card:#FFFFFF;
-    --signal:#0E6B4A; --signal-bg:#E7F3EE;
-    --shell-display:'Sora',system-ui,sans-serif; --shell-body:'Inter',system-ui,sans-serif;
+    --shell-bg:#F5F0E8; --ink:#1C2B4A; --ink-soft:#7A8499; --line:#DDD6C8;
+    --amber:#C4873A; --pin-red:#E60023; --pin-red-dark:#C4001E; --card:#FFFFFF;
+    --signal:#1A7A6E; --signal-bg:#E8F5F3;
+    --shell-display:'Playfair Display',Georgia,serif; --shell-body:'DM Sans',system-ui,sans-serif; --shell-mono:'DM Mono',monospace;
     --app-font:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -22,13 +22,13 @@
 
   /* ---------- Shell header ---------- */
   .shell-head{max-width:1160px;margin:0 auto;padding:48px 24px 8px}
-  .eyebrow{font:600 11px/1 var(--shell-body);letter-spacing:.14em;text-transform:uppercase;color:var(--pin-red)}
-  .shell-head h1{font:600 clamp(26px,4vw,40px)/1.15 var(--shell-display);margin:14px 0 10px;max-width:20ch}
+  .eyebrow{font:500 11px/1 var(--shell-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--signal)}
+  .shell-head h1{font:700 clamp(26px,4vw,40px)/1.15 var(--shell-display);margin:14px 0 10px;max-width:20ch;color:var(--ink)}
   .shell-head .sub{color:var(--ink-soft);max-width:64ch;font-size:15px}
 
   /* ---------- Flow tabs ---------- */
   .flow-tabs{max-width:1160px;margin:28px auto 0;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap}
-  .flow-tab{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;font:600 13px/1 var(--shell-body);color:var(--ink-soft);transition:all .18s ease}
+  .flow-tab{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:10px 18px;font:500 13px/1 var(--shell-body);color:var(--ink-soft);transition:all .18s ease}
   .flow-tab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
   .flow-tab:hover:not([aria-selected="true"]){border-color:var(--ink-soft)}
 
@@ -126,29 +126,30 @@
   .ai-note{margin-top:12px;font:400 10.5px/1.5 var(--app-font);color:#9A8083}
 
   /* ---------- Annotation panel ---------- */
-  .notes h2{font:600 20px/1.3 var(--shell-display);margin-bottom:6px}
+  .notes h2{font:700 20px/1.3 var(--shell-display);margin-bottom:6px;color:var(--ink)}
   .notes .lede{color:var(--ink-soft);font-size:14px;max-width:58ch;margin-bottom:22px}
   .note-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
   .note{background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:18px}
-  .note h4{font:600 11px/1 var(--shell-body);letter-spacing:.12em;text-transform:uppercase;color:var(--pin-red);margin-bottom:9px}
+  .note h4{font:500 11px/1 var(--shell-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--signal);margin-bottom:9px}
   .note p{font-size:13.5px;color:#3A3A3A}
   .note p + p{margin-top:8px}
-  .try{margin:20px 0 0;background:#111;color:#fff;border-radius:16px;padding:16px 18px;font-size:13.5px}
-  .try b{color:#FFD9DE}
+  .try{margin:20px 0 0;background:var(--ink);color:#fff;border-radius:16px;padding:16px 18px;font-size:13.5px}
+  .try b{color:var(--amber)}
 
   /* Signal log */
   .siglog{margin-top:22px}
-  .siglog h3{font:600 12px/1 var(--shell-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .siglog h3{font:500 12px/1 var(--shell-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;display:flex;align-items:center;gap:8px}
   .siglog h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--signal);display:inline-block}
   .sig-list{display:flex;flex-direction:column;gap:8px}
   .sig{background:var(--signal-bg);border:1.5px solid #CBE4D8;color:var(--signal);border-radius:12px;padding:10px 14px;font:500 12.5px/1.5 var(--shell-body);animation:pop .3s ease}
   @keyframes pop{from{transform:scale(.96);opacity:0}to{transform:scale(1);opacity:1}}
   @media(prefers-reduced-motion:reduce){.sig{animation:none}}
-  .sig time{display:block;font-size:10.5px;color:#5E8A77;margin-top:1px}
+  .sig time{display:block;font-size:10.5px;color:#4C7869;margin-top:1px}
   .sig-empty{color:var(--ink-soft);font-size:12.5px;border:1.5px dashed var(--line);border-radius:12px;padding:12px 14px}
 
   footer{max-width:1160px;margin:0 auto;padding:0 24px 56px;color:var(--ink-soft);font-size:12px;border-top:1px solid var(--line);padding-top:22px}
   footer b{color:var(--ink)}
+
 
   /* gradient palette for pins */
   .g1{background:linear-gradient(140deg,#E8DCC8,#C9B597)} .g2{background:linear-gradient(140deg,#D8E2DC,#A3B9AA)}
@@ -163,7 +164,7 @@
 <header class="shell-head">
   <div class="eyebrow">What's one thing you would change about Pinterest the product?</div>
   <h1>Duplicate Save Guard &amp; the AI Taste Partner</h1>
-  <p class="sub">My answer, in two connected changes: a lightweight decision point when a save would duplicate a Pin already on the board, and an AI layer that turns the signals boards already contain into articulated taste — because boards remember everything we save, but don't help us understand any of it. Every screen below is clickable.</p>
+  <p class="sub">My answer, in two connected changes: a lightweight decision point when a save would duplicate a Pin already on the board, and an AI layer that turns the signals boards already contain into articulated taste, because boards remember everything we save but don't help us understand any of it. Every screen below is clickable.</p>
 </header>
 
 <nav class="flow-tabs" role="tablist" aria-label="Prototype flows">
@@ -236,7 +237,7 @@
             <div class="insights">
               <div class="ins-head">
                 <div class="spark">&#10024;</div>
-                <div><h3>Taste insights</h3><div class="ins-sub">Drawn only from what you've saved — tell it when it's wrong</div></div>
+                <div><h3>Taste insights</h3><div class="ins-sub">Drawn only from what you've saved. Tell it when it's wrong</div></div>
               </div>
 
               <div class="ins-block">
@@ -261,7 +262,7 @@
                 <div class="ins-label">One gap worth noticing</div>
                 <div class="gap-card">
                   <div class="g-ic">&#128161;</div>
-                  <p><strong>32 Pins of finished rooms — none on lighting.</strong> Rooms in this style lean on layered warm light.</p>
+                  <p><strong>32 Pins of finished rooms, none on lighting.</strong> Rooms in this style lean on layered warm light.</p>
                   <button onclick="gapToast()">Explore</button>
                 </div>
               </div>
@@ -337,42 +338,42 @@
   <section class="notes" aria-live="polite">
     <!-- Flow 1 notes -->
     <div id="notes1">
-      <h2>Flow 1 — a decision point only the duplicate path ever sees</h2>
-      <p class="lede">Today, Pinterest already detects duplicates: open the board picker on a Pin you've saved before and a "Psst — you already saved this Pin to Apartment Ideas" notice appears. But the notice is informational only — tap that same board and the duplicate saves silently. The product detects the signal, tells you, and then doesn't act on it.</p>
+      <h2>Flow 1: A decision point only the duplicate path ever sees</h2>
+      <p class="lede">Today, Pinterest already detects duplicates: open the board picker on a Pin you've saved before and a "Psst, you already saved this Pin to Apartment Ideas" notice appears. But the notice is informational only. Tap that same board and the duplicate still saves silently. The product detects the signal, tells you, and then doesn't act on it.</p>
       <div class="note-grid">
         <div class="note"><h4>The design decision</h4>
-          <p>Keep the Psst notice — and let it escalate. If the user then picks the board that already holds the Pin, a confirmation asks: <i>"Are you sure you want to save this again to Apartment Ideas?"</i> Saving to any <b>other</b> board proceeds untouched.</p>
+          <p>Keep the Psst notice, and let it escalate. If the user then picks the board that already holds the Pin, a confirmation asks: <i>"Are you sure you want to save this again to Apartment Ideas?"</i> Saving to any <b>other</b> board proceeds untouched.</p>
           <p>Every normal save stays exactly as frictionless as today. Only the one path that creates a duplicate gets a decision point.</p></div>
         <div class="note"><h4>Why "yes" matters as much as "no"</h4>
-          <p>"No" keeps the board clean. But "yes" is the interesting answer: a deliberate re-save is one of the strongest intent signals a user can send — this idea pulled me back. Confirming captures that signal explicitly instead of discarding it as clutter.</p></div>
+          <p>"No" keeps the board clean. But "yes" is the interesting answer: a deliberate re-save is one of the strongest intent signals a user can send, since it means this idea pulled them back. Confirming captures that signal explicitly instead of discarding it as clutter.</p></div>
         <div class="note"><h4>How I'd validate</h4>
-          <p>A usability evaluation of the save flow first: how often are duplicates accidental vs. deliberate? If a meaningful group re-saves on purpose (to bump or re-mark interest), the confirm design wins over hard blocking — which is why this proposes choice, not prevention.</p>
-          <p>I'd also A/B a zero-interruption variant: an inline "already saved — view instead?" option inside the board picker.</p></div>
+          <p>A usability evaluation of the save flow first: how often are duplicates accidental versus deliberate? If a meaningful group re-saves on purpose, to bump or re-mark interest, the confirm design wins over hard blocking, which is why this proposes choice rather than prevention.</p>
+          <p>I'd also A/B a zero-interruption variant: an inline "already saved, view instead?" option inside the board picker.</p></div>
       </div>
-      <div class="try"><b>Try it:</b> tap <b>Save</b> on "Walnut &amp; linen living room" — the board picker opens with the Psst notice, as in the real product. Pick <b>Apartment Ideas</b> to see the proposed confirmation, or another board to see the untouched path. Confirming the duplicate updates Flow 2.</div>
+      <div class="try"><b>Try it:</b> tap <b>Save</b> on "Walnut &amp; linen living room." The board picker opens with the Psst notice, as in the real product. Pick <b>Apartment Ideas</b> to see the proposed confirmation, or another board to see the untouched path. Confirming the duplicate updates Flow 2.</div>
     </div>
 
     <!-- Flow 2 notes -->
     <div id="notes2" style="display:none">
-      <h2>Flow 2 — boards as understanding, not just storage</h2>
-      <p class="lede">A board of forty Pins isn't forty items — it's an unarticulated point of view. Users can feel their taste before they can name it. Reading a corpus and surfacing its pattern is exactly what AI does well, and a user's own boards are a dataset only Pinterest has.</p>
+      <h2>Flow 2: Boards as understanding, not just storage</h2>
+      <p class="lede">A board of forty Pins isn't forty items. It's an unarticulated point of view. Users can feel their taste before they can name it. Reading a corpus and surfacing its pattern is exactly what AI does well, and a user's own boards are a dataset only Pinterest has.</p>
       <div class="note-grid">
         <div class="note"><h4>The design decision</h4>
           <p>The AI works on <b>your saves, not the feed</b>. It articulates the directions a board is circling, surfaces the Pins you keep returning to (fed directly by Flow 1's confirmed re-saves), and names one gap worth noticing.</p>
           <p>It never creates content. Every Pin stays human-made and human-chosen.</p></div>
         <div class="note"><h4>Mixed initiative by design</h4>
-          <p>Each insight ships with a ✓ / ✕. The AI proposes; the user confirms or corrects; corrections retrain it. If it reads your taste wrong, fixing it is the core interaction — not optional polish.</p></div>
+          <p>Each insight ships with a ✓ / ✕. The AI proposes; the user confirms or corrects; corrections retrain it. If it reads your taste wrong, fixing it is the core interaction, not optional polish.</p></div>
         <div class="note"><h4>How I'd validate</h4>
-          <p>The make-or-break question: does being "read" feel illuminating or invasive? Pinterest holds aspirations people haven't said out loud. I'd start with interviews on reactions to articulated taste, then a diary study on whether insights change behavior — sharper searches, faster decisions, projects attempted.</p>
+          <p>The make-or-break question is whether being "read" feels illuminating or invasive. Pinterest holds aspirations people haven't said out loud. I'd start with interviews on reactions to articulated taste, then a diary study on whether insights change behavior: sharper searches, faster decisions, projects attempted.</p>
           <p>If users want boards left as private daydreams, that kills the feature and teaches me something better.</p></div>
       </div>
-      <div class="try"><b>Try it:</b> confirm or dismiss a theme chip — dismissing one shows the correction loop. If you confirmed the duplicate in Flow 1, "Walnut &amp; linen" now reads <b>Saved ×3</b>.</div>
+      <div class="try"><b>Try it:</b> confirm or dismiss a theme chip. Dismissing one shows the correction loop. If you confirmed the duplicate in Flow 1, "Walnut &amp; linen" now reads <b>Saved ×3</b>.</div>
     </div>
 
     <div class="siglog">
-      <h3>Live signal log — what the product learns as you click</h3>
+      <h3>Live signal log: what the product learns as you click</h3>
       <div class="sig-list" id="sigList">
-        <div class="sig-empty" id="sigEmpty">No signals yet. Interact with the phone — every meaningful action lands here, the way it would land in a research dataset.</div>
+        <div class="sig-empty" id="sigEmpty">No signals yet. Interact with the phone, and every meaningful action lands here, the way it would land in a research dataset.</div>
       </div>
     </div>
   </section>
@@ -422,9 +423,9 @@
     document.getElementById('aptDot').style.display = isDup ? '' : 'none';
     document.getElementById('pickerModal').classList.add('open');
     if(isDup){
-      logSignal('duplicate_detected · board picker opened — “Psst” notice shown before any board is chosen (current product behavior)');
+      logSignal('duplicate_detected · board picker opened, "Psst" notice shown before any board is chosen (current product behavior)');
     } else {
-      logSignal('save_initiated · board picker opened — no duplicates anywhere, no notice shown');
+      logSignal('save_initiated · board picker opened, no duplicates anywhere, no notice shown');
     }
   }
 
@@ -436,11 +437,11 @@
     closePicker();
     if(pickerIsDup && name === 'Apartment Ideas'){
       document.getElementById('dupModal').classList.add('open');
-      logSignal('duplicate_board_chosen · user picked the board that already holds this Pin → confirmation asked (the proposed change — today this saves silently)');
+      logSignal('duplicate_board_chosen · user picked the board that already holds this Pin, so a confirmation is asked (the proposed change; today this saves silently)');
       return;
     }
     toast('Saved to ' + name);
-    logSignal('save · saved to “' + name + '” — frictionless, exactly as today');
+    logSignal('save · saved to "' + name + '," frictionless, exactly as today');
     flashSaved();
   }
 
@@ -464,7 +465,7 @@
     document.getElementById('dupModal').classList.remove('open');
     if(log === true){
       toast('Board kept as is');
-      logSignal('duplicate_declined · user chose not to re-save — board stays clean');
+      logSignal('duplicate_declined · user chose not to re-save, board stays clean');
     }
   }
 
@@ -474,7 +475,7 @@
     document.getElementById('returnBadge').textContent = 'Saved ×3';
     document.getElementById('returnBadge').classList.add('bump');
     toast('Saved again to Apartment Ideas', "We'll remember this one keeps pulling you back");
-    logSignal('return_intent · deliberate re-save confirmed — strong preference signal captured for Taste insights (see Flow 2)');
+    logSignal('return_intent · deliberate re-save confirmed, strong preference signal captured for Taste insights (see Flow 2)');
   }
 
   function viewBoardFromModal(){
@@ -489,19 +490,19 @@
     if(yes){
       chip.classList.remove('dismissed');
       chip.classList.add('confirmed');
-      toast('Noted — "' + name + '" confirmed');
-      logSignal('insight_confirmed · "' + name + '" — human validation strengthens the taste model');
+      toast('Noted, "' + name + '" confirmed');
+      logSignal('insight_confirmed · "' + name + '," human validation strengthens the taste model');
     } else {
       chip.classList.remove('confirmed');
       chip.classList.add('dismissed');
-      toast('Got it — rethinking "' + name + '"', 'Corrections retrain your insights');
-      logSignal('insight_corrected · "' + name + '" dismissed — the correction is the core interaction, not edge-case handling');
+      toast('Got it, rethinking "' + name + '"', 'Corrections retrain your insights');
+      logSignal('insight_corrected · "' + name + '" dismissed, the correction is the core interaction, not edge-case handling');
     }
   }
 
   function gapToast(){
     toast('In the full product, this opens a search scoped to warm lighting for this board');
-    logSignal('gap_engaged · user explored the lighting gap — board moving from mood toward plan');
+    logSignal('gap_engaged · user explored the lighting gap, board moving from mood toward plan');
   }
 </script>
 </body>
